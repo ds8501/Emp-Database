@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface repoAddress extends JpaRepository<Address,Long> {
-
+    Address findBypincode(int pincode);
 }
