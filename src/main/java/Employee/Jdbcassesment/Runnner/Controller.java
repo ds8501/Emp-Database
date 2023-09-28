@@ -4,6 +4,7 @@ import Employee.Jdbcassesment.Entity.Address;
 import Employee.Jdbcassesment.Entity.EmpDetails;
 import Employee.Jdbcassesment.repository.JPA.Repo;
 import Employee.Jdbcassesment.repository.JPA.repoAddress;
+import Employee.Jdbcassesment.repository.Jdbc.EmpDetailsRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,8 @@ public class Controller {
     private Repo repo;
     @Autowired
     private repoAddress repoAddress;
+    @Autowired
+    EmpDetailsRepo empDetailsRepo;
 
     @RequestMapping(value = "/employee",method = RequestMethod.POST)
     public String addEmp(@RequestBody EmpDetails empDetails){
@@ -46,8 +49,14 @@ public class Controller {
 
     @RequestMapping(value = "/employee",method = RequestMethod.GET)
     public List<EmpDetails> findAll(){
-        return repo.findAll();
+        return empDetailsRepo.selectEmp();
+                //repo.findAll();
     }
+//@RequestMapping(value = "/address",method = RequestMethod.GET)
+//    public List<Address> findAllAddress(){
+//        return (List<Address>) empDetailsRepo.selectAdd();
+//                //repo.findAll();
+//    }
 
     @Transactional
     @RequestMapping(value = "/employee/{id}/address",method = RequestMethod.GET)
