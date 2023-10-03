@@ -25,7 +25,8 @@ public class EmpDetails {
     private String email;
     private String m_id;
     private String department ;
-
+    @ManyToMany(cascade = CascadeType.ALL)
+    private long salary;
     private String dob;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="emp_id",referencedColumnName = "id")
