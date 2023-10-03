@@ -22,7 +22,7 @@ public class Controller {
     @Autowired
     EmpDetailsRepo empDetailsRepo;
 
-    @RequestMapping(value = "/employee",method = RequestMethod.POST)
+    @RequestMapping(value = "/employee/",method = RequestMethod.POST)
     public String addEmp(@RequestBody EmpDetails empDetails){
         String email=empDetails.getEmail();
         if(!email.contains("@jungleegames.com"))
