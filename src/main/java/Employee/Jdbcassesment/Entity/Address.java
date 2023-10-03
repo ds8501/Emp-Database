@@ -12,5 +12,6 @@ public class Address {
     private Long id;
     private int pincode;
     private String city;
+    private String street;
     private String country;
 }
